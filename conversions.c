@@ -20,32 +20,32 @@
 
 	// le pasaremos como parametros tanto el parametro a imprimir, 
 	// como la especificacion de si es capital o no. 
-int sexi_hexi(va_list valo, int cap)
-{
-	char hexi[]= "0123456789abcdef012345678ABCDEF";
-	
-	while ()
-	if (cap)
-		hexi[valo % 16]
-	else 
-		hexi[valo % 16 + 16]
-}
 
-	// para imprimir el decimal que haremos? pasar como parametro 
-	// implementar la recursion sin incluir la libreria. 
-	// 345234525
-int decibelly(int belly)
+
+// ver como implmentar el negativo. 
+int numislumis(int belly, int base, int cap)
 {
+	char lumis[]= "0123456789abcdef012345678ABCDEF";
+	int sign = 1;
+
+	if (belly < 0)
+	{
+		write (1, '-', 1);
+		belly*=-1;
+	}
+		
 	if (belly > 0)
 	{
-		recursion (belly / 10);
-		char *aescribir = belly % 10 + '0';
+		char *aescribir;
+		recursion (belly / base);
+		if (cap)
+			aescribir = lumis[belly % base + 16] + '0';
+		else 
+			aescribir = lumis[belly % base] + '0';
 		write (1, &aescribir, 1);
 	}
 }
-
 	// lo unico que hasemos será imprimir el decimal con la funcion ft
-
 int charizard (char *charo)
 {
 	write(1,&charo,1);
