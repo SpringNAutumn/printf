@@ -41,8 +41,3 @@
 * %x Imprime un número hexadecimal (base 16) en minúsculas.
 * %X Imprime un número hexadecimal (base 16) en mayúsculas.
 * % % para imprimir el símbolo del porcentaje.
-
-
-
-
-
