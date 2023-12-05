@@ -10,15 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 
 int main (void)
 {
-	int prueba;
-	
-	prueba = 342342424;
-	printf("%i\n", prueba);
-	printf("%x\n",prueba);
-	printf("%X\n",prueba);
-	printf("%d\n",prueba);
-	printf("%u\n",prueba);
+	char buffer[10];
+	int prueba = 0xAF;
+	ft_printf("%d", 124314);
 }

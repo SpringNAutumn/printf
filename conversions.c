@@ -12,41 +12,41 @@
 
 #include "ft_printf.h"
 
-	// Aqui implementaremos las conversiones.
-	// La hexademial va a ser igual para uppercase y lowercase
-	// char hexi[] = "0123456789abcdef0123456789ABCDEF" in case uppercase is speccified, we add 16 to the array index. 
-
-	// para la conversion hexadecimal. recibimos el arg como argumento hacemos un write 
-
-	// le pasaremos como parametros tanto el parametro a imprimir, 
-	// como la especificacion de si es capital o no. 
-int sexi_hexi(va_list valo, int cap)
+int sexidecihexi( int valori, int length, int cov)
 {
-	char hexi[]= "0123456789abcdef012345678ABCDEF";
+	char hexi[32];
+	int base;
 	
-	while ()
-	if (cap)
-		hexi[valo % 16]
-	else 
-		hexi[valo % 16 + 16]
-}
+	hexi =  "0123456789abcdef0123456789ABCDEF";
+	if (cov == 0 || cov == 1)
+		base = 16;
+	else if (cov == 2 || cov == 3)
+		base == 10;
 
-	// para imprimir el decimal que haremos? pasar como parametro 
-	// implementar la recursion sin incluir la libreria. 
-	// 345234525
-int decibelly(int belly)
-{
-	if (belly > 0)
+	if (numi > 0)
 	{
-		recursion (belly / 10);
-		char *aescribir = belly % 10 + '0';
+		int sexidecihexi(valori / base, length, cov);
+		if (cov == 1)
+			char *aescribir = hexi[valo % base + 16];
+		else if (cov == 0)
+			char *aescribir = hexi[valo % base];
+
 		write (1, &aescribir, 1);
+		length ++;
 	}
+	return length;
 }
 
-	// lo unico que hasemos será imprimir el decimal con la funcion ft
-
-int charizard (char *charo)
+int charizard (int length, int cov)
 {
-	write(1,&charo,1);
+	int i;
+
+	i = 0;
+	while (chari[i])
+		write(1,&chari,1);
+
+	while (chari[i])
+		write(1,&chari,1);
+
+return i;
 }

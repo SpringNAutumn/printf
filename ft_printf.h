@@ -17,11 +17,9 @@
 #include <stdio.h>
 #include <unistd.h>
 
-
-int sexi_hexi(va_list valo, int Cap);
 int ft_printf(char *impreso, ...);
-int checking_chicks (char *check_chicks);
+int checking_chicks (char checko, va_list args);
+int sexidecihexi( long long int valori, int length, int cov);
 int decibelly(int belly);
-
 
 #endif
