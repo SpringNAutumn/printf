@@ -21,7 +21,7 @@ int sexidecihexi(long long int valori, int cov)
 
 	length = 0;
 	hexi =  "0123456789abcdef0123456789ABCDEF";
-	if (cov == 0 || cov == 1 || cov == 4)
+	if (cov == 0 || cov == 1)
 		base = 16;
 	else if (cov == 2 || cov == 3)
 		base = 10;
@@ -45,8 +45,10 @@ int charizard (char *chari)
 
 	i = 0;
 	while (chari[i])
+	{
 		write(1,&chari[i],1);
-
+		i++;
+	}
 return i;
 }
 

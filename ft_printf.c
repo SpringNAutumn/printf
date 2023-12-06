@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
+
 
 int ft_printf(char *impreso, ...)
 {
@@ -29,16 +31,17 @@ int ft_printf(char *impreso, ...)
       {
          checko = impreso [++i];
          length += checking_chicks (checko, args);
-         i ++;
+      }
+      else
+      {
+         write(1, &impreso[i], 1);
          length ++;
       }
-      write(1, &impreso[i], 1);
       i ++;
-      length ++;
    }
    return length;
 }
-
+ 
 int checking_chicks (char checko, va_list args)
 {
     if (checko == 'x')
