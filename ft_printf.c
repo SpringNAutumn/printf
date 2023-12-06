@@ -16,52 +16,47 @@ int ft_printf(char *impreso, ...)
 {
 	int length;
 	int i;
+   char checko;
 
-    length = 0;
-    i = 0;
-    va_list args;
-    va_start(args, impreso);
+   length = 0;
+   i = 0;
+   va_list args;
+   va_start(args, impreso);
 
-    while (impreso[i])
-    {
-        if (impreso[i] == '%')
-        {
-            char checko = impreso [++i];
-            length += checking_chicks (checko, args);
-        }
-        impreso ++;
-        length ++;
-    }
-    return length;
+   while (impreso[i])
+   {
+      if (impreso[i] == '%')
+      {
+         checko = impreso [++i];
+         length += checking_chicks (checko, args);
+         i ++;
+         length ++;
+      }
+      write(1, &impreso[i], 1);
+      i ++;
+      length ++;
+   }
+   return length;
 }
 
 int checking_chicks (char checko, va_list args)
 {
     if (checko == 'x')
-       return sexidecihexi(va_arg(args, unsigned int), length, 0);
-
+       return sexidecihexi(va_arg(args, unsigned int), 0);
     else if (checko == 'X')
-       return sexidecihexi(va_arg(args, unsigned int), length, 1);
-
+       return sexidecihexi(va_arg(args, unsigned int), 1);
     else if (checko == 'u')
-       return sexidecihexi(va_arg(args, unsigned int), length, 2);
-
-    else if (checko == 'i' | checko == 'd')
-       return sexidecihexi(va_arg(args, int), length, 3);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   
-    else if (checko == '%')
-       return charizard(va_arg(args, char *), length, 0);
-
+       return sexidecihexi(va_arg(args, unsigned int), 2);
+    else if (checko == 'i' || checko == 'd')
+       return sexidecihexi(va_arg(args, int), 3);
+    else if (checko == '%' || checko == 'c')
+       return singlecharizard(va_arg(args, int));
     else if (checko == 's')
-       return charizard(va_arg(args, char *), length, 0);
-        
+       return charizard(va_arg(args, char *));
     else if (checko == 'p')
-       return charizard(va_arg(args, void *), length, 1);
-
-    else if (checko == 'c')
-       return charizard(va_arg(args, char *), length, 0);
-
+    {
+      write (1,"0x", 2);
+       return 2 + sexidecihexi(va_arg(args, size_t), 1);
+    }
+    else return 0;
 }

@@ -18,8 +18,9 @@
 #include <unistd.h>
 
 int ft_printf(char *impreso, ...);
-int checking_chicks (char checko, va_list args);
-int sexidecihexi( long long int valori, int length, int cov);
-int decibelly(int belly);
+int checking_chicks(char checko, va_list args);
+int sexidecihexi( long long int valori, int cov);
+int charizard (char *chari);
+int singlecharizard (int chari);
 
 #endif
