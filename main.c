@@ -23,13 +23,21 @@ int main (void)
     char charo = 'o';
     char porcento = '%';
 
-    ft_printf(" el primer numero es: %d y el segundo numero: %d", numi1, numo2);
+
+    printf(" el primer numero es: %p", (void *) -14523);
+    //ft_printf(" el primer numero es: %s y el segundo numero: %s\n", "", "NULL");
+/*
     ft_printf(" el primer numero es: %X y el segundo numero: %x", hexiCap, hexiNocap);
     ft_printf(" el primer numero es: %c y el segundo numero: %%", charo, porcento);
     ft_printf(" el primer numero es: %s ", charizard);
+*/
+
 
 /*
-    ft_printf( "el segundo numero: %p", &porcento);
-    printf("el segundo numero es %p", &porcento);
+    ft_printf( "el segundo numero: %%"); // ¿que ocurre aqui.
+    printf("el segundo numero es %%");
+    printf("el segundo numero es %%", '%');
+    printf("el segundo numero es %%");
 */
+
 }

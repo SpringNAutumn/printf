@@ -12,16 +12,17 @@
 
 #include "ft_printf.h"
 
-int sexidecihexi(long long int valori, int cov)
+int	sexidecihexi(long long int valori, int cov)
 {
-	char *hexi;
-	int length;
-	int base;
-	char aescribir;
+	char	*hexi;
+	int		length;
+	int		base;
+	char	aescribir;
+	unsigned long long int valoro;
 
 	length = 0;
-	hexi =  "0123456789abcdef0123456789ABCDEF";
-	if (cov == 0 || cov == 1)
+	hexi = "0123456789abcdef0123456789ABCDEF";
+	if (cov == 0 || cov == 1)	
 		base = 16;
 	else if (cov == 2 || cov == 3)
 		base = 10;
@@ -32,30 +33,39 @@ int sexidecihexi(long long int valori, int cov)
 			aescribir = hexi[valori % base + 16];
 		else
 			aescribir = hexi[valori % base];
-
 		write (1, &aescribir, 1);
 		length ++;
 	}
-	return length;
+	return (length);
 }
 
-int charizard (char *chari)
+int	charizard(char *chari)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (chari[i])
+	if (!chari)
 	{
-		write(1,&chari[i],1);
-		i++;
+		return write(1, "(null)", 6);
 	}
-return i;
+	else if (!*chari)
+		return write (1, "", 0);
+	else
+	{
+		while (chari[i])
+		{
+			write(1, &chari[i], 1);
+			i++;
+		}
+	}
+		return (i);
 }
 
-int singlecharizard (int chari)
+int	singlecharizard(int chari)
 {
-	char auxchar = (char) chari;
- 	write(1,&auxchar,1);
+	char	auxchar;
 
-return 1;
+	auxchar = (char) chari;
+	write(1, &auxchar, 1);
+	return (1);
 }

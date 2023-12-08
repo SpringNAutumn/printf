@@ -1,23 +1,26 @@
-// Creamos el makefile para nuestro archivo principal
+NAME = libftprintf.a
 
-//
-CC = gcc
-//
-CFLAGS = -Wall -Werror
-//
-SOURCE = 
-//
-OBJECTS =  $(SOURCE:.c = .o)
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+SOURCE = conversions.c ft_printf.c
+OBJECTS = $(SOURCE:.c=.o)
+REMOVE = rm -f
 
-all: $()
+all: $(NAME)
 
-//hacemos las reglas para comprobar los sources y objects. 
+$(NAME):$(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
-clean: 
-
-.c.o:
-$(CC) $(CFLAGS) -c $< -o$@
+clean:
+	$(REMOVE) $(OBJECTS)
 
 fclean:
+	$(REMOVE) $(NAME)
 
-.PHONY: all clean fclean
+re:
+	clean all 
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY: all clean fclean re
