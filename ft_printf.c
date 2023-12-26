@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ejemplovar.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gmarin-m <gmarin-m@student.42madrid.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: gmarin-m <gmarin-m@student.42madrid.com    +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2023/11/13 09:21:47 by gmarin-m          #+#    #+#             */
 /*   Updated: 2023/11/13 09:21:47 by gmarin-m         ###   ########.fr       */
 /*                                                                            */
@@ -13,60 +16,54 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-
-int   ft_printf(char *impreso, ...)
+int	ft_printf(char const *impreso, ...)
 {
-	int   length;
-	int   i;
-   char  checko;
+	int		length;
+	char	checko;
+	va_list	args;
 
-   length = 0;
-   i = 0;
-   va_list args;
-   va_start(args, impreso);
-   
-   while (impreso[i])
-   {
-      if (impreso[i] == '%')
-      {
-         checko = impreso [++i];
-         length += checking_chicks (checko, args);
-      }
-      else
-      {
-         write(1, &impreso[i], 1);
-         length ++;
-      }
-      i ++;
-   }
-   va_end(args);
-   return length;
+	length = 0;
+	va_start(args, impreso);
+	while (*impreso)
+	{
+		if (*impreso == '%')
+		{
+			checko = *(++impreso);
+			length += checking_chicks(checko, args);
+			impreso++;
+		}
+		else
+		{
+			write(1, impreso, 1);
+			length++;
+			impreso++;
+		}
+	}
+	va_end(args);
+	return (length);
 }
 
-int checking_chicks (char checko, va_list args)
+int	checking_chicks(char checko, va_list args)
 {
-   unsigned long long int  varicela;
-    if (checko == 'x')
-       return sexidecihexi(va_arg(args, unsigned int), 0);
-    else if (checko == 'X')
-       return sexidecihexi(va_arg(args, unsigned int), 1);
-    else if (checko == 'u')
-       return sexidecihexi(va_arg(args, unsigned int), 2);
-    else if (checko == 'i' || checko == 'd')
-       return sexidecihexi(va_arg(args, int), 3);
-    else if (checko == '%')
-         return singlecharizard('%');
-    else if (checko == 'c')
-       return singlecharizard(va_arg(args, int));
-    else if (checko == 's')
-       return charizard(va_arg(args, char *));
-    else if (checko == 'p')
-    {
-      if ((varicela = va_arg(args, unsigned long long int)) == 0)
-         return write (1,"0x0", 3);
-      else 
-          write (1,"0x", 2);
-      return 2 + sexidecihexi(varicela, 0);
-    }
-    else return 0;
+	if (checko == 'x')
+		return (sexihexi(va_arg(args, unsigned int), 0));
+	else if (checko == 'X')
+		return (sexihexi(va_arg(args, unsigned int), 1));
+	else if (checko == 'u')
+		return (sexideci(va_arg(args, unsigned int)));
+	else if (checko == 'i' || checko == 'd')
+		return (sexideci(va_arg(args, int)));
+	else if (checko == '%')
+		return (singlecharizard('%'));
+	else if (checko == 'c')
+		return (singlecharizard(va_arg(args, int)));
+	else if (checko == 's')
+		return (charizard(va_arg(args, char *)));
+	else if (checko == 'p')
+	{
+		write(1, "0x", 2);
+		return (2 + sexihexi(va_arg(args, unsigned long long int), 0));
+	}
+	else
+		return (-1);
 }

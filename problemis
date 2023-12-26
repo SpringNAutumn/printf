@@ -1,3 +1,0 @@
-tenemos el problema de que necesitamos tratar con unsinged long long int solo en el caso de los punteros para tratar de forma correcta los negatvos pasados y que se trabaje con el valor de los dos. 
-
-vamos a dividir el sexidecihexi en dos funciones y asi podremos tratar los hexadecimales como unsigneds. 
